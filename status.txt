@@ -1,0 +1,11 @@
+1. auth controllers are done
+2. optimize send message, multiple promises are there so , use promise.all 
+ to optimize
+3.get messages and get all users in a system 
+4. completed above tasks , socket.io setup remained
+
+
+
+ pending 
+ written a code in a separate file , exported io , server and app 
+ , created a fucntion to get sockert id on the basiss of receiver id 
