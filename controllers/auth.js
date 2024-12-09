@@ -87,16 +87,17 @@ exports.signin = async (req, res) => {
 
 			return res.cookie("token", token, {
 				httpOnly: true,
-				// secure: false,
+				secure: false,
 				expires: new Date(Date.now() + 1000 * 60 * 60 * 24),
-				// sameSite: "none" 
+				sameSite: "none"
 
 			})
 				.status(200)
 				.json({
 					success: true,
 					message: 'user is logged in ',
-					data: is_existing
+					data: is_existing,
+
 				})
 		}
 		else {

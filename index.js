@@ -37,7 +37,7 @@ app.use("/api/v1/messages", messageRoutes)
 const userRoutes = require("./routes/userRoutes");
 app.use("/api/v1/users", userRoutes)
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 4001;
 
 
 server.listen(PORT, () => {

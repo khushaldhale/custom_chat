@@ -27,7 +27,7 @@ exports.sendMessage = async (req, res) => {
 		// Check if chat exists between sender and receiver
 		let chat = await chatSchema.findOne({ participants: { $all: [sender, receiver] } });
 
-		console.log("chat exists  or not ", chat)
+
 
 		// If chat doesn't exist, create a new one
 		if (!chat) {
@@ -47,13 +47,19 @@ exports.sendMessage = async (req, res) => {
 
 		//  now  DB work is  done 
 		//  now send message to receiver
+		console.log(receiver, getSocketId(receiver))
 
 		const socket_receiver_id = getSocketId(receiver);
 
 		// only  if he is online then send hi message
 		if (socket_receiver_id) {
 			// real  time message sent
-			io.to(socket_receiver_id).emit("receive_message", message)
+			// io.to(socket_receiver_id).emit("receive_message", message)
+			// io.to(socket_receiver_id).emit("receive_message", message)
+			console.log("dnymia message sendinggg")
+			io.emit("receive_message", message)
+
+
 		}
 
 		// Send success response
@@ -98,6 +104,15 @@ exports.getMessages = async (req, res) => {
 					message: "messages are fetched succesffulyy",
 					data: response.messages
 				})
+		}
+		else {
+			return res.status(200)
+				.json({
+					success: true,
+					message: "No message  is created yet ",
+					data: response
+				})
+
 		}
 
 	}

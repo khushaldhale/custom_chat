@@ -50,7 +50,8 @@ io.on("connection", (socket) => {
 		const userId = socket.handshake.query.userId
 		//  setting up the online users 
 		onlineUsers[userId] = socket.id
-		console.log("new user is connected : ", socket.id)
+		console.log("new user is connected : ", socket.id, onlineUsers[userId])
+		console.log("all users: ", onlineUsers)
 
 	}
 
