@@ -104,7 +104,8 @@ exports.signin = async (req, res) => {
 			return res.status(404)
 				.json({
 					success: false,
-					message: "password is incorrect"
+					message: "password is incorrect",
+					token
 				})
 		}
 	}
