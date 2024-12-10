@@ -10,7 +10,8 @@ const cookies = require("cookie-parser");
 app.use(cookies())
 const cors = require("cors");
 app.use(cors({
-	origin: '*'
+	origin: 'http://localhost:3000',
+	credentials: true
 }))
 
 
